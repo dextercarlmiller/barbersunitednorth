@@ -1,0 +1,107 @@
+/* =========================================================
+   ABOUT.CSS — About section and stat cards
+   Barbers United North
+   ========================================================= */
+
+.about {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about .section-title {
+  margin-bottom: 1.25rem;
+}
+
+.about__desc {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 640px;
+  line-height: 1.8;
+  margin-bottom: 3.5rem;
+}
+
+/* ── Stat Cards Grid ─────────────────────────────────────── */
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
+  animation: fadeInUp 0.6s ease both;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.22s; }
+.stat-card:nth-child(3) { animation-delay: 0.34s; }
+
+.stat-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+/* Gold accent bar on left */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-card__value {
+  font-family: var(--font-head);
+  font-size: 2.2rem;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.stat-card__label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .about__stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 900px) {
+  .about__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
