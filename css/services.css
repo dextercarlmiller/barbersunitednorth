@@ -1,0 +1,108 @@
+/* =========================================================
+   SERVICES.CSS — Services grid and service cards
+   Barbers United North
+   ========================================================= */
+
+.services {
+  background: var(--bg);
+}
+
+.services .section-title {
+  margin-bottom: 0.75rem;
+}
+
+.services .section-subtitle {
+  margin-bottom: 3rem;
+}
+
+/* ── Services Grid ───────────────────────────────────────── */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* ── Service Card ────────────────────────────────────────── */
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.service-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* Animated left gold bar */
+.service-card__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--transition);
+}
+
+.service-card:hover .service-card__bar {
+  transform: scaleY(1);
+}
+
+/* Corner accent mark */
+.service-card::after {
+  content: '✂';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.8rem;
+  color: var(--border);
+  transition: color var(--transition);
+  line-height: 1;
+}
+
+.service-card:hover::after {
+  color: var(--gold);
+}
+
+.service-card__name {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+  padding-right: 1.5rem;
+}
+
+.service-card__desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+}

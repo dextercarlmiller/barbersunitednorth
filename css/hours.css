@@ -1,0 +1,197 @@
+/* =========================================================
+   HOURS.CSS — Hours table and location section
+   Barbers United North
+   ========================================================= */
+
+.hours-section {
+  background: var(--bg);
+}
+
+.hours-section .section-title {
+  margin-bottom: 2.5rem;
+}
+
+/* ── Two-column layout ───────────────────────────────────── */
+.hours-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── Hours Card ──────────────────────────────────────────── */
+.hours-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.hours-card__heading {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Hours Table ─────────────────────────────────────────── */
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.hours-table tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.hours-table tr:last-child {
+  border-bottom: none;
+}
+
+.hours-table__day,
+.hours-table__time {
+  font-family: var(--font-body);
+  padding: 0.75rem 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.hours-table__day {
+  color: var(--white);
+  font-weight: 500;
+  width: 48%;
+}
+
+.hours-table__time {
+  color: var(--muted);
+  text-align: right;
+}
+
+/* Closed row */
+.hours-table__row--closed .hours-table__day {
+  color: var(--muted);
+}
+
+.hours-table__time--closed {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Today highlight — JS adds .is-today to the matching row */
+.hours-table tr.is-today {
+  background: rgba(200, 168, 75, 0.06);
+  border-radius: 4px;
+}
+
+.hours-table tr.is-today .hours-table__day {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.hours-table tr.is-today .hours-table__time {
+  color: var(--gold);
+}
+
+.hours-card__note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Location Card ───────────────────────────────────────── */
+.location-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.location-card__heading {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.location-card__address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1.25rem;
+}
+
+.location-card__address p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.location-card__phone {
+  display: inline-block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-top: 0.35rem;
+  transition: color var(--transition);
+}
+
+.location-card__phone:hover {
+  color: var(--gold-hover);
+}
+
+/* ── Accessibility Badges ────────────────────────────────── */
+.location-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.location-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.25rem 0.75rem;
+  white-space: nowrap;
+}
+
+/* ── Map Embed ───────────────────────────────────────────── */
+.location-card__map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.location-card__map iframe {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border: 0;
+  filter: grayscale(60%) invert(92%) hue-rotate(180deg);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 840px) {
+  .hours-section__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-card__map iframe {
+    height: 220px;
+  }
+}
