@@ -1,0 +1,174 @@
+/* =========================================================
+   TEAM.CSS — Barber cards grid, avatar circles, booking buttons
+   Barbers United North
+   ========================================================= */
+
+.team {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.team .section-title {
+  margin-bottom: 0.75rem;
+}
+
+.team .section-subtitle {
+  margin-bottom: 3rem;
+}
+
+/* ── Team Grid ───────────────────────────────────────────── */
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Barber Card ─────────────────────────────────────────── */
+.barber-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  transition: transform var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.barber-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+/* Top gold accent line on hover */
+.barber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+}
+
+.barber-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── Avatar Circle ───────────────────────────────────────── */
+.barber-card__avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: var(--avatar-bg, var(--accent-5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px var(--border);
+  transition: box-shadow var(--transition);
+}
+
+.barber-card:hover .barber-card__avatar {
+  box-shadow: 0 0 0 3px var(--gold);
+}
+
+.barber-card__avatar span {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1;
+  user-select: none;
+}
+
+/* If a real photo is later placed inside the avatar, make it fill */
+.barber-card__avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ── Card Body ───────────────────────────────────────────── */
+.barber-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.barber-card__name {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+/* ── Platform Badge ──────────────────────────────────────── */
+.barber-card__platform {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.2rem 0.65rem;
+  background: transparent;
+  line-height: 1.6;
+}
+
+/* ── Booking Button ──────────────────────────────────────── */
+.barber-card__btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .team__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .team__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .barber-card__avatar {
+    width: 72px;
+    height: 72px;
+  }
+
+  .barber-card__avatar span {
+    font-size: 1.3rem;
+  }
+}
