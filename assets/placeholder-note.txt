@@ -1,0 +1,28 @@
+BARBERS UNITED NORTH — PHOTO PLACEHOLDERS
+==========================================
+
+This folder is reserved for barber headshot photos when they become available.
+
+To add a barber's photo:
+1. Place the image file here (e.g. dhugga.jpg, bear.jpg, etc.)
+2. In index.html, find the barber's card avatar div
+3. Remove the <span> initials element
+4. Add: <img src="assets/[filename]" alt="[Barber Name]" />
+
+Each card's avatar div already has overflow:hidden and object-fit:cover
+applied via team.css so photos will automatically be cropped to a circle.
+
+BARBER CARDS READY FOR PHOTOS:
+- Dhugga           → assets/dhugga.jpg
+- Dave Hancock     → assets/dave-hancock.jpg
+- Bear             → assets/bear.jpg
+- Ves              → assets/ves.jpg
+- VeroniCutz       → assets/veronicutz.jpg
+- Pedro Villanueva → assets/pedro-villanueva.jpg
+- Daezhaun Ross    → assets/daezhaun-ross.jpg
+- Andrew Wertman   → assets/andrew-wertman.jpg
+- Alberto Sauceda  → assets/alberto-sauceda.jpg
+- Jose Martinez    → assets/jose-martinez.jpg
+- Didier Rojas     → assets/didier-rojas.jpg
+
+Recommended photo specs: 400x400px minimum, square crop, JPG or WebP.
